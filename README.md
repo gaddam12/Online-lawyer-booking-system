@@ -24,7 +24,3 @@ source env/bin/activate  # Windows: env\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-
-**## ✅ Conclusion**
-
-The Online Lawyer Booking System simplifies the process of finding and booking legal services. With features like secure login, lawyer filtering, and appointment scheduling, the platform aims to bridge the gap between clients and legal professionals. Future enhancements will further improve usability, automation, and accessibility.
