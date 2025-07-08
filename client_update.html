@@ -1,0 +1,148 @@
+{% include 'client_header.html'%}
+{% load static %}
+
+
+ <body>
+	 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	     <div class="container">
+	      <a class="navbar-brand" href="">ONLINE LAWYER BOOKING SYSTEM</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{% url 'client_home' %}" class="nav-link">Home</a></li>
+<!--	          <li class="nav-item"><a href="{% url 'client_details' %}" class="nav-link">My Details</a></li>-->
+	          <li class="nav-item"><a href="{% url 'client_lawyers' %}" class="nav-link">Lawyers</a></li>
+
+<!--				<li class="nav-item"><a href="{% url 'booked' %}" class="nav-link">My Bookings</a></li>-->
+
+<!--				<li class="nav-item"><a href="{% url 'clients_view_bookings_services' %}" class="nav-link">My Bookings</a></li>-->
+				<li class="nav-item"><a href="{% url 'my_quries' %}" class="nav-link">My Queries</a></li>
+				<li class="nav-item"><a href="{% url 'client_view_notification' %}" class="nav-link">Notifications</a></li>
+<!--				<li class="nav-item"><a href="/client_change_password/" class="nav-link">Change Password</a></li>-->
+<!--	          <li class="nav-item"><a href="{% url 'client_logout' %}" class="nav-link">Logout</a></li>-->
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Bookings
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'booked' %}">Lawyers Bookings</a>
+                              <a class="dropdown-item" href="{% url 'clients_view_bookings_services' %}">Services Bookings</a>
+                           </div>
+                        </li>
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Account
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'client_details' %}">My Profile</a>
+                             <a class="dropdown-item" href="{% url 'client_change_password' %}">Change Password</a>
+                              <a class="dropdown-item" href="{% url 'client_logout' %}">Logout</a>
+                           </div>
+                        </li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+ </body>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+<!--          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span>Client <span><i class="fa fa-chevron-right"></i></span></p>-->
+            <h1 class="mb-0 bread"> profile Details  update </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	  <div class="row no-gutters">
+								<div class="col-md-7">
+									<div class="contact-wrap w-100 p-md-5 p-4">
+										<h3 class="mb-4">profile Details  update</h3>
+
+										<form method="POST" enctype="multipart/form-data"  action="{% url 'client_update' %}" id="contactForm" name="contactForm" class="contactForm">
+											<div class="row">
+												{% csrf_token %}
+
+<!--												<div class="col-md-8">-->
+<!--													<div class="form-group">-->
+<!--														<label class="label" for="id">client id</label>-->
+<!--														<input type="number" class="form-control" name="id" value="{{client.id}}" id="id" placeholder="id">-->
+<!--													</div>-->
+<!--												</div>-->
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" for="name">Full Name</label>
+														<input type="text" class="form-control" name="full_name" value="{{client.full_name}}" id="name" placeholder="Name">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" for="email">Email </label>
+														<input type="email" class="form-control" name="email" id="email" value="{{client.email}}" placeholder="Email" required readonly>
+													</div>
+												</div>
+
+														<input type="hidden" class="form-control" name="password" id="password" value="{{client.password}}" placeholder="Password" required readonly/>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" for="mobile">mobile </label>
+<input type="text" class="form-control" name="mobile" id="mobile"
+       value="{{ client.mobile }}" placeholder="Mobile" required
+       pattern="[6-9]{1}[0-9]{9}" title="Enter a valid 10-digit mobile number starting with 6-9">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+    <div class="form-group">
+        <label class="label" for="city">City</label>
+        <select name="city" class="form-control" id="city">
+            <option value="">Select City</option>
+            <option value="Hyderabad" {% if client.city == "Hyderabad" %}selected{% endif %}>Hyderabad</option>
+            <option value="Kerala" {% if client.city == "Kerala" %}selected{% endif %}>Kerala</option>
+            <option value="Banglore" {% if client.city == "Banglore" %}selected{% endif %}>Banglore</option>
+
+            <option value="Pune" {% if client.city == "Pune" %}selected{% endif %}>Pune</option>
+            <option value="vijayawada" {% if client.city == "vijayawada" %}selected{% endif %}>vijayawada</option>
+        </select>
+    </div>
+</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="Address">Address</label>
+
+														<textarea name="address" class="form-control" id="Address" cols="30" rows="4" placeholder="Address...." required>{{client.address}}</textarea>
+													</div></div>
+													<div class="col-md-12">
+													<div class="form-group">
+														{{client.image}}
+														<label class="label" >Photo: </label>
+                                                        <input type="file" id="image" value="{{client.image}}" class="form-control" name="cimage">
+													</div>
+												</div>
+
+												<div class="col-md-12">
+													<div class="form-group">
+														<input type="submit" value="Update" class="btn btn-primary">
+														<div class="submitting"></div>
+														{{msg}}
+													</div>
+												</div>
+											</div>
+										</form>
+
+
+									</div>
+								</div>
+							</div>
+
+
+
+ {% include 'client_footer.html' %}

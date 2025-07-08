@@ -1,0 +1,206 @@
+{% include 'client_header.html'%}
+{% load static %}
+
+
+ <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	     <div class="container">
+	      <a class="navbar-brand" href="#">ONLINE LAWYER BOOKING SYSTEM</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{% url 'client_home' %}" class="nav-link">Home</a></li>
+<!--	          <li class="nav-item"><a href="{% url 'client_details' %}" class="nav-link">My Details</a></li>-->
+	          <li class="nav-item"><a href="{% url 'client_lawyers' %}" class="nav-link">Lawyers</a></li>
+
+<!--				<li class="nav-item"><a href="{% url 'booked' %}" class="nav-link">My Bookings</a></li>-->
+
+<!--				<li class="nav-item"><a href="{% url 'clients_view_bookings_services' %}" class="nav-link">My Bookings</a></li>-->
+				<li class="nav-item"><a href="{% url 'my_quries' %}" class="nav-link">My Queries</a></li>
+				<li class="nav-item"><a href="{% url 'client_view_notification' %}" class="nav-link">Notifications</a></li>
+<!--				<li class="nav-item"><a href="/client_change_password/" class="nav-link">Change Password</a></li>-->
+<!--	          <li class="nav-item"><a href="{% url 'client_logout' %}" class="nav-link">Logout</a></li>-->
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Bookings
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'booked' %}">Lawyers Bookings</a>
+                              <a class="dropdown-item" href="{% url 'clients_view_bookings_services' %}">Services Bookings</a>
+                           </div>
+                        </li>
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Account
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'client_details' %}">My Profile</a>
+                             <a class="dropdown-item" href="{% url 'client_change_password' %}">Change Password</a>
+                              <a class="dropdown-item" href="{% url 'client_logout' %}">Logout</a>
+                           </div>
+                        </li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+ </body>
+	  <img src="{% static 'images/c_home.jpg' %}" width="100%"/>
+<br><br>
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-6 d-flex align-items-stretch">
+						<div class="img img-3 w-100 d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/about-1.jpg' %}); position: relative;">
+
+						</div>
+					</div>
+					<div class="col-md-6 wrap-about ftco-animate">
+						<div class="bg-light px-3 px-md-5 py-5 ">
+		          <div class="heading-section">
+		          	<span class="subheading">Welcome to Online Lawyer Booking System</span>
+		            <h2 class="mb-3">Why to Put Trust Your Trust In Online Lawyer Booking System</h2>
+
+		            <p>A small river named Duden flows by their place and supplies it with the necessary regalia.</p>
+		          </div>
+
+		          <div class="row">
+		          	<div class="col-lg-6">
+		          		<div class="services d-flex w-100">
+			    					<div class="icon d-flex align-items-center justify-content-center">
+			    						<span class="flaticon-lawyer"></span>
+			    					</div>
+			    					<div class="text pl-2">
+			    						<h2>Expert Lawyer</h2>
+			    						<p>Lawyer's main duties are to uphold the law while protecting a client's rights.</p>
+			    					</div>
+			    				</div>
+		          	</div>
+		          	<div class="col-lg-6">
+		          		<div class="services d-flex w-100">
+			    					<div class="icon d-flex align-items-center justify-content-center">
+			    						<span class="flaticon-discount"></span>
+			    					</div>
+			    					<div class="text pl-2">
+			    						<h2>Great Discount</h2>
+			    						<p>Great discounts on your new clients.</p>
+			    					</div>
+			    				</div>
+		          	</div>
+		          	<div class="col-lg-6">
+		          		<div class="services d-flex w-100">
+			    					<div class="icon d-flex align-items-center justify-content-center">
+			    						<span class="flaticon-auction"></span>
+			    					</div>
+			    					<div class="text pl-2">
+			    						<h2>Legal Advisory</h2>
+			    						<p>provides advice to clients on legal issues, documents, and decisions. These advisors usually specialize in a particular area of law.</p>
+			    					</div>
+			    				</div>
+		          	</div>
+		          	<div class="col-lg-6">
+		          		<div class="services d-flex w-100">
+			    					<div class="icon d-flex align-items-center justify-content-center">
+			    						<span class="flaticon-handcuffs"></span>
+			    					</div>
+			    					<div class="text pl-2">
+			    						<h2>Quick Charges</h2>
+			    						<p>For processing further in case there will be a Quick charges applicable</p>
+			    					</div>
+			    				</div>
+		          	</div>
+		          </div>
+	          </div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-counter ftco-section ftco-no-pt mt-4 ftco-no-pb img" id="section-counter">
+    	<div class="container">
+    		<div class="row mb-4">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch counter-wrap ftco-animate">
+            <div class="block-18 py-4 w-100">
+            	<span class="icon flaticon-checklist"></span>
+              <div class="text align-items-center">
+                <strong class="number" data-number="3000">0</strong>
+                <span>Trusted Clients</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch counter-wrap ftco-animate">
+            <div class="block-18 py-4 w-100">
+            	<span class="icon flaticon-checklist"></span>
+              <div class="text align-items-center">
+                <strong class="number" data-number="1000">0</strong>
+                <span>Honor's &amp; Awards</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch counter-wrap ftco-animate">
+            <div class="block-18 py-4 w-100">
+            	<span class="icon flaticon-checklist"></span>
+              <div class="text align-items-center">
+                <strong class="number" data-number="2000">0</strong>
+                <span>Expert Lawyers</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch counter-wrap ftco-animate">
+            <div class="block-18 py-4 w-100">
+            	<span class="icon flaticon-checklist"></span>
+              <div class="text align-items-center">
+                <strong class="number" data-number="10540">0</strong>
+                <span>Successful Cases</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+
+    <section class="ftco-section testimony-section">
+    	<div class="img img-bg" style="background-image: url({% static 'images/bg_4.jpg' %});"></div>
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+          	<span class="subheading">Testimonial</span>
+            <h2 class="mb-3">Happy Clients</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              		{% for feedback in feedback %}
+              <div class="item">
+                <div class="testimony-wrap py-4">
+					<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                  <div class="text">
+                    <p class="mb-4">{{feedback.description}}</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url({% static 'images/person_1.jpg' %})"></div>
+                    	<div class="pl-3">
+							TO:
+		                    <p class="name">{{feedback.lawyer_id}}</p>
+							FORM:
+		                    <span class="name">{{feedback.client_id}}</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+				{% endfor %}
+			</div>
+          </div>
+        </div>
+      </div>
+    </section>
+ {% include 'client_footer.html' %}

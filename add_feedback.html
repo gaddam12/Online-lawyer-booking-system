@@ -1,0 +1,135 @@
+{% include 'client_header.html'%}
+{% load static %}
+
+
+ <body>
+	  	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	     <div class="container">
+	      <a class="navbar-brand" href="">ONLINE LAWYER BOOKING SYSTEM</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{% url 'client_home' %}" class="nav-link">Home</a></li>
+<!--	          <li class="nav-item"><a href="{% url 'client_details' %}" class="nav-link">My Details</a></li>-->
+	          <li class="nav-item"><a href="{% url 'client_lawyers' %}" class="nav-link">Lawyers</a></li>
+
+<!--				<li class="nav-item"><a href="{% url 'booked' %}" class="nav-link">My Bookings</a></li>-->
+
+<!--				<li class="nav-item"><a href="{% url 'clients_view_bookings_services' %}" class="nav-link">My Bookings</a></li>-->
+				<li class="nav-item"><a href="{% url 'my_quries' %}" class="nav-link">My Queries</a></li>
+				<li class="nav-item"><a href="{% url 'client_view_notification' %}" class="nav-link">Notifications</a></li>
+<!--				<li class="nav-item"><a href="/client_change_password/" class="nav-link">Change Password</a></li>-->
+<!--	          <li class="nav-item"><a href="{% url 'client_logout' %}" class="nav-link">Logout</a></li>-->
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Bookings
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'booked' %}">Lawyers Bookings</a>
+                              <a class="dropdown-item" href="{% url 'clients_view_bookings_services' %}">Services Bookings</a>
+                           </div>
+                        </li>
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Account
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'client_details' %}">My Profile</a>
+                             <a class="dropdown-item" href="{% url 'client_change_password' %}">Change Password</a>
+                              <a class="dropdown-item" href="{% url 'client_logout' %}">Logout</a>
+                           </div>
+                        </li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+ </body>
+
+
+  <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/c_home.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+<!--          	<p class="breadcrumbs mb-0"><span class="mr-2"><a>Home <i class="fa fa-chevron-right"></i></a></span>Bookings<span><i class="fa fa-chevron-right"></i></span></p>-->
+            <h1 class="mb-0 bread">Add FeedBack</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+	  <div class="row no-gutters">
+								<div class="col-md-7">
+									<div class="contact-wrap w-100 p-md-5 p-4">
+<!--										<h3 class="mb-4">Add Feedbacks </h3>-->
+
+
+    <h3 class="mb-4 text-primary">Add Your Feedback</h3>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="email">Client Email</label>
+                    <input type="email" class="form-control" name="email" value="{{ email }}" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="services">Service ID</label>
+                    <input type="number" class="form-control" name="services" value="{{ bookings.services.id }}" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="label" for="description">Description</label>
+                    <textarea name="description" class="form-control" rows="4" placeholder="Your feedback..."></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="label" for="rating">Rating</label>
+                    <select name="rating" class="form-control" required>
+                        <option value="">Select Rating</option>
+                        <option value="1">1★</option>
+                        <option value="2">2★</option>
+                        <option value="3">3★</option>
+                        <option value="4">4★</option>
+                        <option value="5">5★</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-3">
+                <div class="form-group">
+                    <input type="submit" value="Submit Feedback" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+
+									</div>
+								</div>
+
+							</div>
+ {% include 'client_footer.html' %}
+

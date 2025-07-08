@@ -1,0 +1,123 @@
+{% include 'client_header.html'%}
+{% load static %}
+
+
+ <body>
+	   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	     <div class="container">
+	      <a class="navbar-brand" href="#">ONLINE LAWYER BOOKING SYSTEM</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+
+	       <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{% url 'client_home' %}" class="nav-link">Home</a></li>
+<!--	          <li class="nav-item"><a href="{% url 'client_details' %}" class="nav-link">My Details</a></li>-->
+	          <li class="nav-item"><a href="{% url 'client_lawyers' %}" class="nav-link">Lawyers</a></li>
+
+<!--				<li class="nav-item"><a href="{% url 'booked' %}" class="nav-link">My Bookings</a></li>-->
+
+<!--				<li class="nav-item"><a href="{% url 'clients_view_bookings_services' %}" class="nav-link">My Bookings</a></li>-->
+				<li class="nav-item"><a href="{% url 'my_quries' %}" class="nav-link">My Queries</a></li>
+				<li class="nav-item"><a href="{% url 'client_view_notification' %}" class="nav-link">Notifications</a></li>
+<!--				<li class="nav-item"><a href="/client_change_password/" class="nav-link">Change Password</a></li>-->
+<!--	          <li class="nav-item"><a href="{% url 'client_logout' %}" class="nav-link">Logout</a></li>-->
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Bookings
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'booked' %}">Lawyers Bookings</a>
+                              <a class="dropdown-item" href="{% url 'clients_view_bookings_services' %}">Services Bookings</a>
+                           </div>
+                        </li>
+				<li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Account
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							   <a class="dropdown-item" href="{% url 'client_details' %}">My Profile</a>
+                             <a class="dropdown-item" href="{% url 'client_change_password' %}">Change Password</a>
+                              <a class="dropdown-item" href="{% url 'client_logout' %}">Logout</a>
+                           </div>
+                        </li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+ </body>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_5.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+<!--          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'lawyer_home' %}">Home <i class="fa fa-chevron-right"></i></a></span>Add Services<span><i class="fa fa-chevron-right"></i></span></p>-->
+            <h1 class="mb-0 bread">Add Files</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="row no-gutters">
+								<div class="col-md-7">
+									<div class="contact-wrap w-100 p-md-5 p-4">
+										<h3 class="mb-4">Add Files</h3>
+										<form method="POST" action="" id="contactForm" enctype="multipart/form-data" name="contactForm" class="contactForm">
+											<div class="row">
+												<div class="col-md-12">
+													{% csrf_token %}
+
+                                                <div class="col-md-12">
+													<div class="form-group">
+														<label class="label" >Booking Id</label>
+														<input type="number" class="form-control" name="lawyer" id="lawyer" value="{{forms.id}}" placeholder="lawyer" required readonly>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="upload_by">Upload By</label>
+														<input type="email" class="form-control" name="upload_by" id="upload_by" value="{{email}}" readonly placeholder="upload_by" required>
+													</div>
+												</div>
+													<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="file">File</label>
+														<input type="file" class="form-control" name="file" id="file" placeholder="File" required>
+													</div>
+
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="title">Title</label>
+														<input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
+													</div>
+												</div>
+
+
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="description">Description</label>
+														<textarea name="description" class="form-control" id="description" cols="30" rows="4" placeholder="Description" required></textarea>
+													</div>
+												</div>
+													<div class="col-md-12">
+													<div class="form-group">
+														<input type="submit" value="Manage Files" class="btn btn-primary">
+														<div class="submitting"></div>
+														{{msg}}
+													</div>
+												</div>
+											</div>
+										</div>
+										</form>
+									</div>
+									</div>
+								</div>
+
+
+ {% include 'lawyer_footer.html' %}
